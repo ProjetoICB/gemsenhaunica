@@ -1,0 +1,6 @@
+development:
+  ICB_OAUTH: "icb_oauth"
+  SECRET_OAUTH: "xxx"
+production:
+  ICB_OAUTH: "icb_oauth"
+  SECRET_OAUTH: "xxx"

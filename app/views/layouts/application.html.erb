@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Projeto</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<nav class="navbar navbar-inverse" role="navigation">
+  <div class="container">
+
+    <ul class="nav navbar-nav">
+      <% if session[:login] != nil %>
+
+          <% if session[:perfil].include? "Administrador" %>
+              <li class="lead"> <%= link_to "Usuários", usuarios_path %></li>
+              <li class="lead"> <%= link_to "Logs", logs_path %></li>
+          <% end %>
+
+          <% if session[:perfil].include? "Comum" %>
+              <li class="lead"> <%= link_to "Perfil", perfils_path %></li>
+              <li class="lead"> <%= link_to "Permitidos", permitidos_path %></li>
+          <% end %>
+
+      <% end %>
+
+      <li class="lead"> <%= link_to "Sair" , logout_path %></li>
+
+    </ul>
+  </div>
+</nav>
+
+<p>Você está logado com o usuário: <b><%= session[:login] %></b> </p>
+
+<p>Perfils: <%= session[:perfil] %></p>
+
+<%= yield %>
+
+
+</body>
+</html>
