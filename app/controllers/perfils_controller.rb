@@ -1,4 +1,5 @@
 class PerfilsController < ApplicationController
+  before_filter 'autenticado?'
   before_action :set_perfil, only: [:show, :edit, :update]
 
   # GET /perfils

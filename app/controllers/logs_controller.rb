@@ -1,5 +1,7 @@
 class LogsController < ApplicationController
+  before_filter 'autenticado?'
   before_action :set_log, only: [:show]
+
 
   # GET /logs
   # GET /logs.json

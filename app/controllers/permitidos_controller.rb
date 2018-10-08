@@ -1,4 +1,5 @@
 class PermitidosController < ApplicationController
+  before_filter 'autenticado?'
   before_action :set_permitido, only: [:show, :edit, :update, :destroy]
 
   # GET /permitidos
